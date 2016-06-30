@@ -7,12 +7,25 @@ using System.ComponentModel;
 
 namespace HelperMethods.Models {
 
-    [DisplayName("New Person")]
+    [MetadataType(typeof(PersonMetaData))]
+    public partial class Person {
+        public int PersonId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+        public Address HomeAddress { get; set; }
+        public bool IsApproved { get; set; }
+        public Role Role { get; set; }
+    }
+
+    //revised to partial class
+    /*[DisplayName("New Person")]
     public class Person {
         [HiddenInput(DisplayValue=false)]
         public int PersonId { get; set; }
 
         [Display(Name ="First")]
+        [UIHint("MultilineText")]
         public string FirstName { get; set; }
 
         [Display(Name ="Last")]
@@ -27,7 +40,7 @@ namespace HelperMethods.Models {
         [Display(Name ="Approved")]
         public bool IsApproved { get; set; }
         public Role Role { get; set; }
-    }
+    }*/
 
     public class Address {
         public string Line1 { get; set; }
