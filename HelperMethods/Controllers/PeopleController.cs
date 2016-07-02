@@ -18,7 +18,20 @@ namespace HelperMethods.Controllers {
             return View();
         }
 
-        public ActionResult GetPeople() {
+        public PartialViewResult GetPeopleData(string selectedRole = "All") {
+            IEnumerable<Person> data = personData;
+            if (selectedRole != "All") {
+                Role selected = (Role)Enum.Parse(typeof(Role), selectedRole);
+                data = personData.Where(p => p.Role == selected);
+            }
+            return PartialView(data);
+        }
+
+        public ActionResult GetPeople(string selectedRole = "All") {
+            return View((object)selectedRole);
+        }
+
+        /*public ActionResult GetPeople() {
             return View(personData);
         }
 
@@ -30,6 +43,6 @@ namespace HelperMethods.Controllers {
                 Role selected = (Role)Enum.Parse(typeof(Role), selectedRole);
                 return View(personData.Where(p => p.Role == selected));
             }
-        }
+        }*/
     }
 }
