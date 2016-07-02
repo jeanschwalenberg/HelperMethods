@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
 
 namespace HelperMethods.Models {
 
-    [MetadataType(typeof(PersonMetaData))]
+    [MetadataType(typeof(PersonMetadata))]
     public partial class Person {
         public int PersonId { get; set; }
         public string FirstName { get; set; }
@@ -43,9 +39,12 @@ namespace HelperMethods.Models {
     }*/
 
     public class Address {
+        [Display(Name = "Address")]
         public string Line1 { get; set; }
+        [Display(Name = "APT/UNIT")]
         public string Line2 { get; set; }
         public string City { get; set; }
+        [Display(Name = "Postal Code")]
         public string PostalCode { get; set; }
         public string Country { get; set; }
     }

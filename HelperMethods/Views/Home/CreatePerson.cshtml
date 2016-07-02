@@ -1,12 +1,12 @@
 ﻿@model HelperMethods.Models.Person
 
 @{
-    ViewBag.Title = "CreatePerson";
+    ViewBag.Title = "Create Person";
     Layout = "/Views/Shared/_Layout.cshtml";
     Html.EnableClientValidation(false);
 }
 
-<h2>CreatePerson: @Html.LabelForModel()</h2>
+<h2>Create Person: @Html.LabelForModel()</h2>
 
 @using (Html.BeginForm("CreatePerson", "Home",
                 new { id = "MyIdValue" }, FormMethod.Post,
